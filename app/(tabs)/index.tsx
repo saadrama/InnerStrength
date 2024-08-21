@@ -1,19 +1,12 @@
-import {
-  Image,
-  StyleSheet,
-  Platform,
-  View,
-  TouchableOpacity,
-} from "react-native";
-
-import { HelloWave } from "@/components/HelloWave";
+import { Image, StyleSheet, View, TouchableOpacity } from "react-native";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { SafeAreaView } from "react-native-safe-area-context";
 import "nativewind";
 import { Colors } from "@/constants/Colors";
-import { Button, Icon, Searchbar, TextInput } from "react-native-paper";
+import { Button, Icon, Searchbar } from "react-native-paper";
 import { useState } from "react";
+import CategoryHeader from "@/components/CategoryHeader";
 
 export default function HomeScreen() {
   const date = new Date(Date.now());
@@ -21,10 +14,10 @@ export default function HomeScreen() {
   return (
     <SafeAreaView>
       <ThemedView style={styles.titleContainer}>
-        <View style={styles.stepContainer}>
+        <View style={styles.row}>
           <View style={{ flexDirection: "row", gap: 20 }}>
             <Icon source="calendar-month" color="white" size={28} />
-            <ThemedText type="subtitle">
+            <ThemedText lightColor="white" darkColor="white" type="subtitle">
               {date.toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "short",
@@ -33,22 +26,37 @@ export default function HomeScreen() {
             </ThemedText>
           </View>
           <TouchableOpacity
-            style={{ right: 10, borderWidth:1.5, borderColor:"orange", borderRadius:50, padding:10 }}
+            style={{
+              right: 10,
+              borderWidth: 1.5,
+              borderColor: "orange",
+              borderRadius: 50,
+              padding: 10,
+            }}
             onPress={() => console.log("Pressed")}
-
           >
-            <Icon source="bell" color="white" size={28}/>
+            <Icon source="bell" color="white" size={28} />
           </TouchableOpacity>
         </View>
-        <ThemedView style={styles.stepContainer}>
+        <ThemedView
+          style={[styles.row, { backgroundColor: Colors.darkBownish }]}
+        >
           <Image
             style={styles.image}
             source={{ uri: "https://i.pravatar.cc/50" }}
             alt="placeholder"
           />
-          <ThemedView>
-            <ThemedText type="subtitle">Hi, Juma</ThemedText>
-            <ThemedView style={{ flexDirection: "row", margin: 0 }}>
+          <ThemedView style={{ backgroundColor: Colors.darkBownish }}>
+            <ThemedText type="subtitle" lightColor="white" darkColor="white">
+              Hi, Juma
+            </ThemedText>
+            <ThemedView
+              style={{
+                flexDirection: "row",
+                margin: 0,
+                backgroundColor: Colors.darkBownish,
+              }}
+            >
               <Button icon={"star"} textColor="white">
                 Pro
               </Button>
@@ -67,6 +75,7 @@ export default function HomeScreen() {
           value={searchQuery}
         />
       </ThemedView>
+      <CategoryHeader title="Mental Health Metrics" option={null} />
     </SafeAreaView>
   );
 }
@@ -78,7 +87,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 40,
     borderBottomRightRadius: 40,
   },
-  stepContainer: {
+  row: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
