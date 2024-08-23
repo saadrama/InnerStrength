@@ -1,4 +1,4 @@
-import { Image, StyleSheet, View, TouchableOpacity } from "react-native";
+import { Image, StyleSheet, View, TouchableOpacity, ScrollView } from "react-native";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -7,6 +7,9 @@ import { Colors } from "@/constants/Colors";
 import { Button, Icon, Searchbar } from "react-native-paper";
 import { useState } from "react";
 import CategoryHeader from "@/components/CategoryHeader";
+import MoodScore from "../../components/MoodScore";
+import MoodAnalytics from "@/components/MoodAnalytics";
+import SleepQuality from "@/components/SleepQuality";
 
 export default function HomeScreen() {
   const date = new Date(Date.now());
@@ -47,7 +50,7 @@ export default function HomeScreen() {
             alt="placeholder"
           />
           <ThemedView style={{ backgroundColor: Colors.darkBownish }}>
-            <ThemedText type="subtitle" lightColor="white" darkColor="white">
+            <ThemedText type="title" lightColor="white" darkColor="white">
               Hi, Juma
             </ThemedText>
             <ThemedView
@@ -76,6 +79,12 @@ export default function HomeScreen() {
         />
       </ThemedView>
       <CategoryHeader title="Mental Health Metrics" option={null} />
+      <ScrollView horizontal style={styles.scrollBehavior} >
+      <MoodScore/>
+      <MoodAnalytics/>
+      <SleepQuality/>
+
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -105,4 +114,10 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 50,
   },
+  scrollBehavior:{
+    paddingVertical:20,
+    marginHorizontal: 20,
+    display:"flex",
+    gap:20
+  }
 });
