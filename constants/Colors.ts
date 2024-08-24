@@ -5,6 +5,16 @@
 
 const tintColorLight = '#0a7ea4';
 const tintColorDark = '#fff';
+export const paleGreen = "#f1f8e9"
+export const lightPurple = "#8576C4"
+export const palePurple = "#f3e5f5"
+export const lightOrange = "ff6d00"
+export const paleOrange = "#fff3e0"
+export const deepOrange = '#dd2c00';
+export const lightDeepOrange = '#fbe9e7';
+export const brown = '#3e2723';
+export const lightBrown = '#efebe9';
+
 
 export const Colors = {
   light: {
