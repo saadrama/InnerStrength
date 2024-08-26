@@ -3,7 +3,7 @@ import { Icon } from "react-native-paper";
 import MoodContainer from "./MoodContainer";
 import { ThemedText } from "./ThemedText";
 import { ThemedView } from "./ThemedView";
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 
 interface Props {
   bgColor: string;
@@ -13,6 +13,7 @@ interface Props {
   leftIcon: string;
   rightIcon: string | any| null;
 }
+const screenWidth = Dimensions.get("window");
 function MindfulTracker({
   bgColor = "black",
   secondaryBgColor,
@@ -27,7 +28,7 @@ function MindfulTracker({
         <ThemedView style={[styles.iconEffects, { backgroundColor: secondaryBgColor }]}>
           <Icon source={leftIcon} size={40} color={bgColor} />
         </ThemedView>
-        <ThemedView style={{width: "auto"}}>
+        <ThemedView style={{maxWidth: screenWidth.width/3}}>
           <ThemedText lightColor="black" darkColor="white" type="subtitle">
             {title}
           </ThemedText>
