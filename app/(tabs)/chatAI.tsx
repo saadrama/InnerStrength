@@ -88,7 +88,6 @@ export default function TabTwoScreen() {
           value={prompt}
           onFocus={() => setIsFocused(true)}
           onBlur={closeInput}
-          // onEndEditing={closeInput}
           activeUnderlineColor={brown}
         />
         <Button textColor="white" style={styles.generateBtn} onPress={executeUserQuery}>

@@ -130,7 +130,7 @@ export default function HomeScreen() {
             title="Stress Level"
             text="Level 3 (Normal)"
             leftIcon="head-lightbulb"
-            rightIcon="null"
+            rightIcon="head-lightbulb"
             bgColor={deepOrange}
             secondaryBgColor={lightDeepOrange}
           />
@@ -138,7 +138,7 @@ export default function HomeScreen() {
             title="Mood Tracker"
             text="Sad -> Happy -> Neutral"
             leftIcon="emoticon-happy"
-            rightIcon="null"
+            rightIcon="emoticon-happy"
             bgColor={lightOrange}
             secondaryBgColor={paleOrange}
           />

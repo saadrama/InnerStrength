@@ -29,10 +29,10 @@ function MindfulTracker({
           <Icon source={leftIcon} size={40} color={bgColor} />
         </ThemedView>
         <ThemedView style={{maxWidth: screenWidth.width/3}}>
-          <ThemedText lightColor="black" darkColor="white" type="subtitle">
+          <ThemedText lightColor="black" darkColor="black" type="subtitle">
             {title}
           </ThemedText>
-          <ThemedText lightColor="black" darkColor="white" type="default">
+          <ThemedText lightColor="black" darkColor="black" type="default">
             {text}
           </ThemedText>
         </ThemedView>
