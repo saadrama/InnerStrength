@@ -27,7 +27,9 @@ import MoodAnalytics from "@/components/MoodAnalytics";
 import SleepQuality from "@/components/SleepQuality";
 import MindfulTracker from "@/components/MindfulTracker";
 import aiimage from "../../assets/images/aiimage.png";
+import meditation from "../../assets/images/meditation.jpg";
 import { Link } from "expo-router";
+import CardwithBackground from "@/components/CardwithBackground";
 export default function HomeScreen() {
   const date = new Date(Date.now());
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -96,6 +98,14 @@ export default function HomeScreen() {
             value={searchQuery}
           />
         </ThemedView>
+        <CategoryHeader title="Exciting Features 🎉" option={null} />
+
+        <ScrollView horizontal={false} >
+          <CardwithBackground title="Inner Strength Assistant" text_Info={["24/7 Availability ⏲", "Emotional Support 🙂"]} CTA_Link={"/chatAI"} image_Uri={aiimage} CTA_Text="Check It Out" CTA_Bg_Color={brown} CTA_Color="white" color="black" blank_Space={100} />
+
+          <CardwithBackground title="Qualified Therapists" text_Info={["Different packages for individual, family and corporate clients", "Schedule a convenient time", "Various payment options", "Attend Your Session"]} CTA_Link={"/therapists"} image_Uri={meditation} CTA_Text="Explore" CTA_Bg_Color={Colors.darkBownish} CTA_Color="white" color="white" blank_Space={15} />
+
+        </ScrollView>
         <CategoryHeader title="Mental Health Metrics" option={null} />
         <ScrollView horizontal style={styles.scrollBehavior}>
           <MoodScore />
@@ -145,21 +155,6 @@ export default function HomeScreen() {
             secondaryBgColor={paleOrange}
           />
         </ThemedView>
-        <CategoryHeader title="AI Chatbot" option={null} />
-
-          <Card style={{marginHorizontal:20}}>
-            <Card.Title title="Inner Strength Assistant" titleVariant="titleLarge" />
-            <Card.Content >
-              <Text variant="bodyLarge" >24/7 Availability ⏲</Text>
-              <Text variant="bodyLarge">Emotional Support 🙂</Text>
-              <View style={{height:100}}></View>
-            </Card.Content>
-            <Card.Cover source={aiimage} style={{position:"absolute", elevation:-1, left:0, right:0,}} />
-            <Card.Actions>
-              <Link style={{width:"100%", backgroundColor: brown, color:"white", height:40, textAlign:'center', paddingTop:7, borderRadius:20}} href={"/chatAI"}>Check it out</Link>
-            </Card.Actions>
-          </Card>
-        {/* </ThemedView> */}
       </ScrollView>
     </SafeAreaView>
   );

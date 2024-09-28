@@ -24,6 +24,15 @@ export default function TabLayout() {
           ),
         }}
       />
+        <Tabs.Screen
+          name="therapists"
+          options={{
+            title: 'Therapists',
+            tabBarIcon: ({ color, focused }) => (
+              <Icon size={28} source={focused ? 'doctor' : 'doctor'} color={color} />
+            ),
+          }}
+        />
       <Tabs.Screen
         name="chatAI"
         options={{
