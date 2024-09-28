@@ -9,6 +9,7 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {
+  brown,
   Colors,
   deepOrange,
   lightDeepOrange,
@@ -18,14 +19,15 @@ import {
   paleOrange,
   palePurple,
 } from "@/constants/Colors";
-import { Button, Icon, Searchbar } from "react-native-paper";
+import { Button, Card, Icon, Searchbar, Text } from "react-native-paper";
 import { useState } from "react";
 import CategoryHeader from "@/components/CategoryHeader";
 import MoodScore from "../../components/MoodScore";
 import MoodAnalytics from "@/components/MoodAnalytics";
 import SleepQuality from "@/components/SleepQuality";
 import MindfulTracker from "@/components/MindfulTracker";
-
+import aiimage from "../../assets/images/aiimage.png";
+import { Link } from "expo-router";
 export default function HomeScreen() {
   const date = new Date(Date.now());
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -143,6 +145,21 @@ export default function HomeScreen() {
             secondaryBgColor={paleOrange}
           />
         </ThemedView>
+        <CategoryHeader title="AI Chatbot" option={null} />
+
+          <Card style={{marginHorizontal:20}}>
+            <Card.Title title="Inner Strength Assistant" titleVariant="titleLarge" />
+            <Card.Content >
+              <Text variant="bodyLarge" >24/7 Availability ⏲</Text>
+              <Text variant="bodyLarge">Emotional Support 🙂</Text>
+              <View style={{height:100}}></View>
+            </Card.Content>
+            <Card.Cover source={aiimage} style={{position:"absolute", elevation:-1, left:0, right:0,}} />
+            <Card.Actions>
+              <Link style={{width:"100%", backgroundColor: brown, color:"white", height:40, textAlign:'center', paddingTop:7, borderRadius:20}} href={"/chatAI"}>Check it out</Link>
+            </Card.Actions>
+          </Card>
+        {/* </ThemedView> */}
       </ScrollView>
     </SafeAreaView>
   );
